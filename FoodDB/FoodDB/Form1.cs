@@ -44,7 +44,7 @@ namespace FoodDB
 
         private void PopulateFoodNames()
         {
-            string query = "SELECT FoodInTheFridge.Name FROM FoodType INNER JOIN FoodInTheFridge ON FoodInTheFridge.TypeId=FoodType.Id WHERE FoodType.Id=@TypeId";
+            string query = "SELECT Food.Name FROM FoodType INNER JOIN FoodInTheFridge ON FoodInTheFridge.TypeId=FoodType.Id WHERE FoodType.Id=@TypeId";
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
@@ -62,7 +62,7 @@ namespace FoodDB
 
         private void listFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-           PopulateFoodNames();
+            PopulateFoodNames();
         }
 
         private void label2_Click(object sender, EventArgs e)
